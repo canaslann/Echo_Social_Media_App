@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <!-- Ana İçerik Alanı -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Üst App Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/surface"
+            android:elevation="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <!-- Profil Resmi -->
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/profile_circle"
+                android:contentDescription="Profil"
+                android:src="@drawable/post_card_background"
+                tools:srcCompat="@drawable/post_card_background" />
+
+            <!-- Logo -->
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:contentDescription="Logo"
+                android:src="@drawable/logo"
+                tools:srcCompat="@drawable/logo" />
+
+            <!-- Arama Butonu -->
+            <ImageView
+                android:id="@+id/searchButton"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:contentDescription="Ara"
+                android:padding="6dp"
+                android:src="@android:drawable/ic_menu_search"
+                app:tint="@color/text_primary" />
+        </LinearLayout>
+
+        <!-- ViewPager2 için Fragment Container -->
+        <FrameLayout
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabNewPost"
+                android:layout_width="wrap_content"
+                android:layout_height="98dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="90dp"
+                android:contentDescription="Yeni Gönderi"
+                android:src="@android:drawable/ic_input_add"
+                app:backgroundTint="@color/primary"
+                app:elevation="6dp"
+                app:tint="@color/text_primary" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Alt Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/surface"
+        android:elevation="8dp"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_menu" />
+
+    <!-- Floating Action Button (Tweet At) -->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

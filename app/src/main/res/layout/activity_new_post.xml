@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <!-- Üst Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/surface"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <!-- Kapat Butonu -->
+        <ImageView
+            android:id="@+id/closeButton"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="Kapat"
+            android:padding="4dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:tint="@color/text_primary" />
+
+        <!-- Başlık -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:text="Yeni Gönderi"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Gönder Butonu -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/postButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/button_primary"
+            android:enabled="false"
+            android:minWidth="80dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="Gönder"
+            android:textAllCaps="false"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- İçerik Alanı -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <!-- Profil Resmi -->
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/profile_circle"
+                android:contentDescription="Profil"
+                android:src="@mipmap/ic_launcher" />
+
+            <!-- Gönderi İçeriği -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- Metin Alanı -->
+                <EditText
+                    android:id="@+id/postContentEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="top"
+                    android:hint="Ne düşünüyorsun?"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:maxLength="280"
+                    android:minHeight="120dp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="18sp" />
+
+                <!-- Karakter Sayacı -->
+                <TextView
+                    android:id="@+id/characterCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp"
+                    android:text="0/280"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp" />
+
+                <!-- Seçilen Görsel (opsiyonel) -->
+                <RelativeLayout
+                    android:id="@+id/imagePreviewContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/imagePreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:background="@color/surface"
+                        android:contentDescription="Görsel önizleme"
+                        android:scaleType="centerCrop" />
+
+                    <!-- Görseli Kaldır Butonu -->
+                    <ImageView
+                        android:id="@+id/removeImageButton"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/profile_circle"
+                        android:contentDescription="Görseli kaldır"
+                        android:padding="6dp"
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        app:tint="@color/text_primary" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Alt Araç Çubuğu -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <!-- Görsel Ekle -->
+        <ImageView
+            android:id="@+id/addImageButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="Görsel ekle"
+            android:padding="8dp"
+            android:src="@android:drawable/ic_menu_gallery"
+            app:tint="@color/primary" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Gizlilik Durumu -->
+        <ImageView
+            android:id="@+id/privacyButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="Gizlilik"
+            android:padding="8dp"
+            android:src="@android:drawable/ic_lock_idle_lock"
+            app:tint="@color/text_secondary" />
+    </LinearLayout>
+
+</LinearLayout>
